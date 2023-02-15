@@ -96,19 +96,26 @@ for (let i = 0; i < slideArrObjects.length; i++) {
   //RIMANENDO NEL CICLO FOR SOPRA SCRITTO, CREO (per 5 volte) grazie al mix di createElement e template literal, gli elementi
   //che dovremmo visualizzare nel DOM.
 
-  const carouselElement = document.getElementById('carousel')
 
-  carouselElement.innerHTML = `
-    <div class="slide">
+  const divAdd = document.createElement('div'); //variabile che crea un DIV PER 5 VOLTE (N.b. mi trovo ancora nel ciclo for degli ogetti!!!)
+  divAdd.className = 'slide'; // aggiungo la classe ad ogni div slide, che poi nella parte di logica della volta precedente, andra' a spostare la classe active!
+  console.log(divAdd)
+  
+  //prendo il div, e vado a scrivere nel suo innerhtml con template literal, i vari tag e il valore interno, che sara' immagine titolo e descrizione!!!
+  divAdd.innerHTML = `
       <img src="${sourceImg}" alt="">
       <h2 class="main-title">${title}</h2>
       <p class="pic-description">${description}</p>
-    </div>
   `
 
+
+
+
+  document.getElementById('carousel').appendChild(divAdd)
+
+  
+  console.log(slideArrObjects[0])
 }
-
-
 
 
 
@@ -129,6 +136,7 @@ const rightBtnElement = document.getElementById('arrow-right')
 console.log(slideElements)
 console.log(leftBtnElement, rightBtnElement)
 
+let currentIndex = 0
 // FUNZIONALITA' AL CLICK DEL BOTTONE DESTRO (PER ANDARE AVANTI)
 
 rightBtnElement.addEventListener('click', function() {
