@@ -45,6 +45,24 @@ img{
 	right: 20px;
 }
 
+#arrow-mid{
+  position: absolute;
+  font: 60px;
+  color: aqua;
+  top: 50%;
+  right: 40%;
+  transform: translateX(-50%);
+}
+
+#arrow-mid-reverse{
+  position: absolute;
+  font: 60px;
+  color: aqua;
+  top: 50%;
+  left: 40%;
+  transform: translateX(-50%);
+}
+
 .main-title{
   margin-top: 20px;
   padding: 20px;

@@ -130,13 +130,82 @@ slideArrObjects.forEach((el,i,array) => {
 
 const slideElements = document.getElementsByClassName('slide') //prendo tutti gli elementi con classe slide.
 
-//INIZIO INTERVAL
-let autoplayInterval = setInterval(function(){
 
 
-  // clearInterval(autoplayInterval)
-},4000)
-//FINE INTERVAL
+
+
+//FAR PASSARE CICLICAMENTE PER LA LUNGHEZZA DELL'ARRAY LA CLASSE ACTIVE DA UN INDICE ALL'ALTRO
+
+// per ogni iterazione, crea un timer di tot secondi che passano la classe active!
+
+let intervalPreset = 1000
+
+const midBtnElement = document.getElementById('arrow-mid')
+
+const midReverseBtnElement = document.getElementById('arrow-mid-reverse')
+
+
+//RIGHT AUTOPLAY
+midBtnElement.addEventListener('click', function () {
+
+
+    let autoplayInterval = setInterval(function() { //inizio timer
+        
+      if (currentIndex < slideElements.length-1){
+
+        let currentSlide = slideElements[currentIndex]
+        currentSlide.classList.remove('active')
+
+        currentIndex += 1
+
+        let nextSlide = slideElements[currentIndex]
+        nextSlide.classList.add('active')
+
+      }
+
+      if (currentIndex === 4){
+        clearInterval(autoplayInterval)
+      }
+      
+    },intervalPreset)  //fine timer attivazione
+
+
+})
+
+
+//LEFT AUTOPLAY
+midReverseBtnElement.addEventListener('click', function () {
+
+
+  let autoplayInterval = setInterval(function() { //inizio timer
+      
+    if (currentIndex > 0){
+
+      let currentSlide = slideElements[currentIndex]
+    currentSlide.classList.remove('active')
+
+    currentIndex -= 1
+
+    let nextSlide = slideElements[currentIndex]
+    nextSlide.classList.add('active')
+
+    }
+
+    if (currentIndex === 0){
+      clearInterval(autoplayInterval)
+    }
+    
+  },intervalPreset)  //fine timer attivazione
+
+
+})
+
+
+
+
+
+
+//VERSIONE ON CLICK DELLO SCORRIMENTO DELLE SLIDE
 
 slideElements[0].classList.add('active')
 
