@@ -1,11 +1,5 @@
 console.log('funziono')
 
-//NUOVO TASK 15/02 CREARE I VARI OGGETTI CON ALL'INTERNO IMMAGINE TITOLO E DESCRIZIONE
-
-
-
-
-
 // // MACRO OBJECTIVE: far si che AL CLICK della chevron, la classe active(ovvero quella che rende block immagine)
 // // si sposti sull' immagine seguente in modo tale da poter cambiare immagine a mio piacimento,
 // // ovviamente dovro' far la cosa inversa sulla chevron che va all'indietro
@@ -56,19 +50,8 @@ console.log('funziono')
 
 
 
+//LOGICA DA NON TOCCARE, CREARE DINAMICAMENTE OGGETTI CON CLASSI ECC TRAMITE I FOR IN E GLI ARRAY DI OBJECTS
 
-
-
-
-
-
-
-
-
-
-
-
-//LOGICA FUNZIONANTE DA NON TOCCARE
 const slideElements = document.getElementsByClassName('slide') //prendo tutti gli elementi con classe slide.
 slideElements[0].classList.add('active')
 
