@@ -1,0 +1,45 @@
+body{
+  background-image: url(../img/ancient\ map\ travel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slide img {
+	width: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	object-position: center;
+}
+
+img{
+  border-radius: 30px;
+  border: 10px solid black;
+}
+
+.slide.active {
+	display: block;
+}
+
+.slide {
+	display: none;
+}
+
+.carousel {
+	position: relative;
+}
+
+.carousel .carousel-arrow {
+	position: absolute;
+	font-size: 40px;
+	color: white;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.carousel .carousel-arrow.arrow-left {
+	left: 20px;
+}
+
+.carousel .carousel-arrow.arrow-right {
+	right: 20px;
+}
