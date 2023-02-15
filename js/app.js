@@ -77,26 +77,22 @@ slideArrObjects = [
 ]
 
 
+slideArrObjects.forEach((el,i,array) => {
 
-for (let i = 0; i < slideArrObjects.length; i++) {
   let currentSlide = slideArrObjects[i]
   console.log(currentSlide)
   
-  // for (let key in currentSlide) {
-  //   let value = currentSlide[key]
-  //   console.log( key , '=', value)
-  // }
 
   //PRENDO UN OGGETTO DESTRUTTURANDOLO E CREANDO VARIE VARIABILI IN UN COLPO SOLO!
-
+  
   const { sourceImg, title, description} = currentSlide
   console.log( sourceImg, title, description )
   //
-
+  
   //RIMANENDO NEL CICLO FOR SOPRA SCRITTO, CREO (per 5 volte) grazie al mix di createElement e template literal, gli elementi
   //che dovremmo visualizzare nel DOM.
-
-
+  
+  
   const divAdd = document.createElement('div'); //variabile che crea un DIV PER 5 VOLTE (N.b. mi trovo ancora nel ciclo for degli ogetti!!!)
   divAdd.className = 'slide'; // aggiungo la classe ad ogni div slide, che poi nella parte di logica della volta precedente, andra' a spostare la classe active!
   console.log(divAdd)
@@ -107,15 +103,19 @@ for (let i = 0; i < slideArrObjects.length; i++) {
       <h2 class="main-title">${title}</h2>
       <p class="pic-description">${description}</p>
   `
-
-
-
-
+  
+  
+  
+  
   document.getElementById('carousel').appendChild(divAdd)
-
+  
   
   console.log(slideArrObjects[0])
-}
+  
+});
+
+// for (let i = 0; i < slideArrObjects.length; i++) {
+// }
 
 
 
@@ -125,7 +125,19 @@ for (let i = 0; i < slideArrObjects.length; i++) {
 
 //LOGICA DA NON TOCCARE, CREARE DINAMICAMENTE OGGETTI CON CLASSI ECC TRAMITE I FOR IN E GLI ARRAY DI OBJECTS
 
+
+
+
 const slideElements = document.getElementsByClassName('slide') //prendo tutti gli elementi con classe slide.
+
+//INIZIO INTERVAL
+let autoplayInterval = setInterval(function(){
+
+
+  // clearInterval(autoplayInterval)
+},4000)
+//FINE INTERVAL
+
 slideElements[0].classList.add('active')
 
 

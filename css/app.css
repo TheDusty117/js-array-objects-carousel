@@ -46,9 +46,18 @@ img{
 }
 
 .main-title{
+  margin-top: 20px;
+  padding: 20px;
+  background-color: brown;
+  border: 2px solid black;
+  border-radius: 100px;
   color: white;
 }
 
 .pic-description{
+  padding: 20px;
+  background-color: brown;
+  border: 2px solid black;
+  border-radius: 100px;
   color: white;
 }
