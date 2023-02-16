@@ -114,25 +114,14 @@ slideArrObjects.forEach((el,i,array) => {
   
 });
 
-// for (let i = 0; i < slideArrObjects.length; i++) {
-// }
 
 
 
-
-
-
-
-//LOGICA DA NON TOCCARE, CREARE DINAMICAMENTE OGGETTI CON CLASSI ECC TRAMITE I FOR IN E GLI ARRAY DI OBJECTS
 
 
 
 
 const slideElements = document.getElementsByClassName('slide') //prendo tutti gli elementi con classe slide.
-
-
-
-
 
 //FAR PASSARE CICLICAMENTE PER LA LUNGHEZZA DELL'ARRAY LA CLASSE ACTIVE DA UN INDICE ALL'ALTRO
 
@@ -151,17 +140,7 @@ midBtnElement.addEventListener('click', function () {
 
     let autoplayInterval = setInterval(function() { //inizio timer
         
-      if (currentIndex < slideElements.length-1){
-
-        let currentSlide = slideElements[currentIndex]
-        currentSlide.classList.remove('active')
-
-        currentIndex += 1
-
-        let nextSlide = slideElements[currentIndex]
-        nextSlide.classList.add('active')
-
-      }
+      slideNext()
 
       if (currentIndex === 4){
         clearInterval(autoplayInterval)
@@ -179,17 +158,7 @@ midReverseBtnElement.addEventListener('click', function () {
 
   let autoplayInterval = setInterval(function() { //inizio timer
       
-    if (currentIndex > 0){
-
-      let currentSlide = slideElements[currentIndex]
-    currentSlide.classList.remove('active')
-
-    currentIndex -= 1
-
-    let nextSlide = slideElements[currentIndex]
-    nextSlide.classList.add('active')
-
-    }
+    slideBack()
 
     if (currentIndex === 0){
       clearInterval(autoplayInterval)
@@ -225,19 +194,7 @@ rightBtnElement.addEventListener('click', function() {
 //USO CONDIZIONE IF ovvero appena arriva al click 6 lei smettera' di andare avanti evitando di dare errore
 
     //CONDIZIONE IF lunghezza dell'array -1 in modo tale da non dare erroe se vado oltre la sua LUNGHEZZA
-  if (currentIndex < slideElements.length-1){
-
-    //nascondere la slide attiva togliendo la classe 'active'
-    let currentSlide = slideElements[currentIndex]
-    currentSlide.classList.remove('active')
-
-    //incrementare l'indice
-    currentIndex += 1
-
-    //spostare classe 'active' e mostrare la slide successiva
-    let nextSlide = slideElements[currentIndex]
-    nextSlide.classList.add('active')
-  }
+  slideNext();
 
 })
 
@@ -245,15 +202,41 @@ rightBtnElement.addEventListener('click', function() {
 leftBtnElement.addEventListener('click', function() { //la slide attiva deve essere >= a 1 della slide attiva
   console.log('slide back', currentIndex)
   
-  if (currentIndex > 0){
-
-    let currentSlide = slideElements[currentIndex]
-    currentSlide.classList.remove('active')
-
-    currentIndex -= 1
-
-    let nextSlide = slideElements[currentIndex]
-    nextSlide.classList.add('active')
-  }
+  slideBack();
 
 })
+
+
+
+
+
+
+function slideBack() {
+  if (currentIndex > 0) {
+
+    let currentSlide = slideElements[currentIndex];
+    currentSlide.classList.remove('active');
+
+    currentIndex -= 1;
+
+    let nextSlide = slideElements[currentIndex];
+    nextSlide.classList.add('active');
+  }
+}
+
+function slideNext() {
+  if (currentIndex < slideElements.length - 1) {
+
+    //nascondere la slide attiva togliendo la classe 'active'
+    let currentSlide = slideElements[currentIndex];
+    currentSlide.classList.remove('active');
+
+    //incrementare l'indice
+    currentIndex += 1;
+
+    //spostare classe 'active' e mostrare la slide successiva
+    let nextSlide = slideElements[currentIndex];
+    nextSlide.classList.add('active');
+  }
+}
+
